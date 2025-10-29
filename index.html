@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja H | Electronics & Communication Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f; /* Navy blue */
+            --secondary: #112240; /* Dark navy */
+            --accent: #64ffda; /* Teal accent */
+            --light: #ccd6f6; /* Light text */
+            --dark: #020c1b; /* Almost black */
+            --gray: #8892b0; /* Gray text */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        header {
+            background-color: var(--primary);
+            padding: 3rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .name-title {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+            overflow: hidden;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-img-placeholder {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .contact-download {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item:hover {
+            color: var(--accent);
+        }
+        
+        .btn-download {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-download:hover {
+            background-color: var(--light);
+            transform: translateY(-2px);
+        }
+        
+        .hire-me-banner {
+            background: linear-gradient(90deg, var(--accent), var(--secondary), var(--accent));
+            background-size: 200% 100%;
+            padding: 0.5rem 0;
+            text-align: center;
+            color: var(--primary);
+            font-weight: bold;
+            animation: running-text 8s linear infinite;
+            overflow: hidden;
+        }
+        
+        @keyframes running-text {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        section {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            margin-bottom: 2rem;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-simple {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: rgba(100, 255, 218, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .education-item:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .education-qualification {
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .education-score {
+            font-weight: bold;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .cert-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cert-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .cert-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .cert-category {
+            margin-bottom: 2rem;
+        }
+        
+        .cert-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .cert-list {
+            list-style-type: none;
+        }
+        
+        .cert-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--secondary);
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .cert-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cert-title {
+            font-weight: bold;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .cert-desc {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        .cert-badge {
+            display: inline-block;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-box {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+        
+        .project-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(100, 255, 218, 0.15);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .project-title {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .project-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .project-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+            color: var(--light);
+        }
+        
+        .project-features li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .internship-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .internship-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+        }
+        
+        .internship-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .internship-header h3 {
+            color: var(--accent);
+        }
+        
+        .internship-header .duration {
+            color: var(--light);
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+        
+        .contact-text h4 {
+            color: var(--light);
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-text p {
+            color: var(--gray);
+        }
+        
+        .why-hire-me {
+            margin-top: 2rem;
+        }
+        
+        .why-hire-me h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .hire-points {
+            list-style-type: none;
+        }
+        
+        .hire-points li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .hire-points li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .contact-form h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 4px;
+            color: var(--light);
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--light);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--gray);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 1rem 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .contact-download {
+                justify-content: center;
+            }
+            
+            .internship-header {
+                flex-direction: column;
+            }
+            
+            .internship-header .duration {
+                margin-top: 0.5rem;
+            }
+            
+             
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-box {
+                padding: 1.5rem;
+            }
+        }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        
+    </style>
+</head>
+<body>
+    <div class="hire-me-banner">
+        <span>Hire Me - Electronics & Communication Engineer | VLSI & Embedded Systems Specialist</span>
+    </div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">POOJA H</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#internship">Internship</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <div class="header-content">
+                <div class="name-title">
+                    <h1><P>Hello, I'm</P><P></P>Pooja H</h1>
+                    <p class="tagline">Electronics & Communication Engineer</p>
+                    <div class="contact-download">
+                        <a href="https://www.linkedin.com/in/pooja-hemananth-1a16442b4" class="contact-item" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="C:\Users\Pooja\OneDrive\Desktop\Resume\Pooja_CV (3).pdf" class="btn-download" id="download-resume">
+                            <i class="fas fa-download"></i>
+                            <span>Download Resume</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="profile-img">
+                    <!-- Replace with your actual photo -->
+                    <img src="C:\Users\Pooja\OneDrive\Desktop\Pooja\Pooja img.JPG" alt="Pooja H">
+                    <!-- <div class="profile-img-placeholder"> -->
+                        <!-- <i class="fas fa-user"></i> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Career Objective</h2>
+            <div class="card">
+                <p>Electronics and Communication Engineering student with a strong foundation in VLSI design and embedded systems. Skilled in microcontroller programming, digital circuit design, and hardware-software integration. Passionate about applying technical expertise and problem-solving skills in semiconductor and embedded domains.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-simple">
+                <div class="education-item">
+                    <span class="education-qualification">B.E - Electronics & Communication Engineering</span>
+                    <span class="education-score">8.6 CGPA (upto 6th Sem)</span>
+                </div>
+                <div class="education-item">
+                    <span class="education-qualification">HSC</span>
+                    <span class="education-score">89%</span>
+                </div>
+                <div class="education-item">
+                    <span class="education-qualification">SSLC</span>
+                    <span class="education-score">79%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category card">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li><strong>Programming:</strong> C, Python, Embedded C</li>
+                        <li><strong>Hardware:</strong> Arduino, Raspberry Pi, Microcontrollers</li>
+                        <li><strong>Simulation Tools:</strong> MATLAB, EDA playground, Xilinx</li>
+                        <li><strong>Hardware Tools:</strong> Arduino IDE, Vivado, Microwind, Tinkercad</li>
+                        <li><strong>Software Tools:</strong> Vs Code, Python IDE, Turbo C</li>
+                    </ul>
+                </div>
+                <div class="skill-category card">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Communication Skills</li>
+                        <li>Problem-Solving Ability</li>
+                        <li>Teamwork & Collaboration</li>
+                        <li>Adaptability & Flexibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-box">
+                <div class="project-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3 class="project-title">Low Power Flip Flop using Clock Gating</h3>
+                <p class="project-description">
+                    Designed a power-efficient flip-flop with gated clock mechanism that activates only during valid input transitions, reducing dynamic power dissipation in synchronous VLSI architectures.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Verilog HDL</span>
+                    <span class="tech-tag">Xilinx Vivado</span>
+                    <span class="tech-tag">VLSI Design</span>
+                </div>
+                <ul class="project-features">
+                    <li>60% reduction in power consumption</li>
+                    <li>Enhanced energy efficiency</li>
+                    <li>Suppressed redundant clock toggling</li>
+                </ul>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-box">
+                <div class="project-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="project-title">Low Power FSM using Retiming Technique</h3>
+                <p class="project-description">
+                    Implemented register retiming in Finite State Machines to strategically relocate flip-flops, equalize path delays, and minimize glitch activity for improved power efficiency.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Verilog</span>
+                    <span class="tech-tag">MATLAB</span>
+                    <span class="tech-tag">Sequential Circuits</span>
+                </div>
+                <ul class="project-features">
+                    <li>Improved timing closure</li>
+                    <li>Reduced glitch activity by 45%</li>
+                    <li>Scalable low-power design</li>
+                </ul>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-box">
+                <div class="project-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3 class="project-title">Energy-Efficient High Speed Adder Design</h3>
+                <p class="project-description">
+                    Developed an optimized prefix tree structure adder (Kogge-Stone/Brent-Kung) for accelerated carry propagation with reduced switching energy, suitable for high-performance processors.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Digital Design</span>
+                    <span class="tech-tag">EDA Tools</span>
+                    <span class="tech-tag">Arithmetic Units</span>
+                </div>
+                <ul class="project-features">
+                    <li>High throughput with minimal delay</li>
+                    <li>40% reduction in switching energy</li>
+                    <li>Optimized for processor arithmetic units</li>
+                </ul>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-box">
+                <div class="project-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3 class="project-title">Smart Car Parking System</h3>
+                <p class="project-description">
+                    Created an IoT-based smart parking system using sensors to detect vehicle presence and LEDs to indicate slot availability in real-time, optimizing space utilization and traffic flow.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">IoT</span>
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Sensors</span>
+                    <span class="tech-tag">Embedded C</span>
+                </div>
+                <ul class="project-features">
+                    <li>Real-time slot monitoring</li>
+                    <li>Mobile interface integration</li>
+                    <li>Efficient space utilization</li>
+                </ul>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-box">
+                <div class="project-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="project-title">Optical Character Extraction</h3>
+                <p class="project-description">
+                    Implemented adaptive illumination correction techniques including multi-directional image fusion and morphological transforms for enhanced text visibility under uneven lighting conditions.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Image Processing</span>
+                </div>
+                <ul class="project-features">
+                    <li>Adaptive illumination correction</li>
+                    <li>Improved character segmentation</li>
+                    <li>Multi-directional image fusion</li>
+                </ul>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-box">
+                <div class="project-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h3 class="project-title">PC Master-Slave Communication System</h3>
+                <p class="project-description">
+                    Developed Verilog-based PC master and slave modules enabling reliable bidirectional data exchange with start, stop, and acknowledgment signaling for robust communication performance.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Verilog</span>
+                    <span class="tech-tag">Xilinx Vivado</span>
+                    <span class="tech-tag">Communication Protocols</span>
+                </div>
+                <ul class="project-features">
+                    <li>Bidirectional data exchange</li>
+                    <li>Fault resilience validation</li>
+                    <li>Protocol adherence verification</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <section id="certifications">
+        <div class="container">
+            <div class="cert-header">
+                <h2>Certifications & Honours</h2>
+                <p>Achievements and professional development</p>
+            </div>
+            <div class="certifications-container">
+                <div class="cert-category">
+                    <h3>Awards & Competitions</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">1st Place - Paper Presentation</div>
+                            <div class="cert-desc">Shree Sathyam College of Engineering and Technology, Salem</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">2nd Place - Project Presentation</div>
+                            <div class="cert-desc">NSN College of Engineering, Karur</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="cert-category">
+                    <h3>Courses & Certifications</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">Foundation Course on IR4.0 Technologies</div>
+                            <div class="cert-desc">TechSaksham (Microsoft & SAP)</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">NPTEL - Introduction to IoT</div>
+                            <div class="cert-desc">Elite status with 65% score</div>
+                            <span class="cert-badge">Elite</span>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">NPTEL - Microprocessors and Microcontrollers</div>
+                            <div class="cert-desc">Elite status with 60% score</div>
+                            <span class="cert-badge">Elite</span>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">IBM AI Certifications</div>
+                            <div class="cert-desc">Mastering the Art of Prompting, Large Language Model Basics, Introduction to Artificial Intelligence</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="cert-category">
+                    <h3>Workshops</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">ADAS ECU Simulation and Testing</div>
+                            <div class="cert-desc">ANCTI, Naan Mudhalvan Scheme</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Workshop on Semi Custom Design</div>
+                            <div class="cert-desc">K. Ramakrishnan College of Technology</div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">AMD AI Challenge Workshop</div>
+                            <div class="cert-desc">Shooting Stars Foundation</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="internship">
+        <div class="container">
+            <h2 class="section-title">Internship</h2>
+            <div class="internship-details">
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <h3>VLSI & Embedded System</h3>
+                        <span class="duration">Taras Systems and Solutions (1 Month)</span>
+                    </div>
+                    <ul class="skill-list">
+                        <li>Gained hands-on experience in digital design fundamentals including flip-flops, counters, and sequential circuits using Verilog HDL and simulation tools.</li>
+                        <li>Developed proficiency in embedded C programming for microcontrollers (PIC, ARM Cortex-M3), focusing on register-level coding and hardware abstraction.</li>
+                        <li>Performed system-level debugging and verification using EDA tools for VLSI circuits and STM32CubeIDE for embedded firmware.</li>
+                        <li>Understood the integration of hardware-software co-design principles in both VLSI logic design and embedded system development for real-time applications.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>poojahemananth32@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 7418329771</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Karur, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <p>Connect with me</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="why-hire-me">
+                        <h4>Why Hire Me?</h4>
+                        <ul class="hire-points">
+                            <li>Strong foundation in VLSI and embedded systems</li>
+                            <li>Award-winning technical presentation skills</li>
+                            <li>Hands-on experience with industry tools</li>
+                            <li>Quick learner with proven adaptability</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Pooja H. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and project cards
+        document.querySelectorAll('section, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Download resume functionality
+        document.getElementById('download-resume').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Resume download would start now. In a real implementation, this would download your PDF resume.');
+            // In a real implementation, you would link to your actual resume PDF
+            // window.location.href = 'path-to-your-resume.pdf';
+        });
+    </script>
+</body>
+</html>
